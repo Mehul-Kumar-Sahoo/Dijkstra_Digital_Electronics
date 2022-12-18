@@ -6,5 +6,7 @@ The "Dijkstra_Final.dsn" file contains the design file that runs on **Proteus So
 
 The graph is stored in 8 different Binary files (.bin format) where each file contains one row of modified adjacency matrix.
 
+[The complete approach to the problem is given here.](https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/blob/main/Dijkstra%20approach.pdf)
+
 The overall design of the circuit looks like this :-
 <img width="788" alt="image" src="https://user-images.githubusercontent.com/93527557/208272530-3a1d7c98-3f2e-4de0-bad6-e506489fcad0.png">

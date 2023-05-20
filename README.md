@@ -1,5 +1,7 @@
 # DIJKSTRA ALGORITHM USING DIGITAL ELECTRONICS
 
+Skills: Proteus 7, Digital Electronics, Algorithm
+
 I am Mehul Kumar Sahoo and I am persuing Electronics Engineering from IIT(BHU),Varanasi. This repository contains a simulation for the digital circuit for Dijkstra algorithm (maximum 8 nodes).
 
 The "Dijkstra_Final.dsn" file contains the design file that runs on **Proteus Software**.

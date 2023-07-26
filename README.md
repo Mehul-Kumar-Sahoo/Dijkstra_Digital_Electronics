@@ -6,6 +6,9 @@ Skills: Proteus 7, Digital Electronics, Algorithm
 simulation for the digital circuit for the Dijkstra algorithm (maximum eight nodes).
 
  - The "Dijkstra_Final.dsn" file contains the design file that runs on **Proteus Software**.
+ - The complete circuit is as follows.
+   
+<img width="793" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/15c90764-4035-400b-892f-faa976e2e366">
 
  - The graph is stored in 8 different Binary files (.bin format) where each file contains one row of modified
 adjacency matrix.
@@ -14,7 +17,7 @@ adjacency matrix.
 vertices in a given graph.
 
 Let us take an example of a graph to make it easy for us to understand.
-  <img width="626" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/c61df0e3-3268-418f-bca5-21d53afff048">
+    <img width="626" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/c61df0e3-3268-418f-bca5-21d53afff048">
 
  - (Here, consider A, B, C, D, and E as 0,1,2,3,4 for convenience)
  - For the given graph, the ideal adjacency matrix (8x8) should be
@@ -31,4 +34,56 @@ replace the zeros with infinite distance, which in this particular digital circu
  -  After the adjacency matrix is modified, we will take each row and make its binary file, which is given as input
 to the ROM. (The Python code for making binary files and the binary files are provided in the repository)
 
+## CIRCUIT EXPLANATION
+ - **Input** - We have used ROM (IC2732) and counters(IC74161) for input.
+   
+    <img width="608" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/98d1fc99-88fe-4492-9399-ba98c66f8233">
 
+ - **Source Node** - The circuit finds the node along with the minimum distance from it and assigns it as the next node,
+and the gateway takes the distance value to the required node.
+
+   <img width="626" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/f3404d9d-e4db-4c8a-8ea7-38dbe4fe2a60">
+
+ - The remaining circuit mainly consists of two parts: - Controller and Gateway.
+
+   <img width="324" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/634d9a56-7189-49b5-83d7-ecc404fb6ba6">
+
+   - The function of the **controller** is to do the calculation, i.e., find the minimum distance of the current node from the
+source node and find the next node at the minimum distance from it.
+   - The **gateway's** function is to receive the next node and its minimum distance from the source node and take the values to the next node.
+
+ - **Controller** - The basic layout of the processor is as follows:-
+
+   <img width="515" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/62a001f4-6c62-46ae-8d56-bc453d8023ea">
+
+ -	First, it receives the minimum distance from the previous node, and when it gets the enable bit, it starts behaving as the current node.
+
+    <img width="380" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/39a6e625-de3a-417f-8918-239d338cbefc">
+
+ - Then, the counters start counting from 0 to 7, which is fed into the ROM to extract the data.
+
+   <img width="326" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/452c91e4-05ff-4a6b-86d5-e244ef765e1c">
+
+ - The next part finds the minimum distance of the next node from the current node and ensures that it is not visited earlier.
+
+   <img width="484" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/a853ab09-dcae-4358-bcae-3ef0824cbe4d">
+
+ - The bottom part of the circuit finds the minimum distance of the current node from the source node through all possible paths received.
+
+   <img width="632" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/efd1cfb8-855d-493b-b1ed-62ef0560b6c3">
+
+ - **Gateway** :- It consists of three parts
+    - XNOR gates for bit matching to channel the distance value to the next node by providing the select line for the 6x3 multiplexers.
+
+      <img width="620" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/5c51624e-4298-4522-bb77-5611f014f144">
+
+    - 6x3 Multiplexers are present whose output is the distance whenever it is in state one else output is 0.
+  
+      <img width="638" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/72d1a829-b99e-4cac-992a-69504662a09e">
+
+    -  3x8 decoder provides the enable bit for the processor of the next node.
+
+       <img width="241" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/113da56b-c064-4108-913d-30170fcc648f">
+
+## OUTPUT
+- The output is shown using logic probes and only checks the nodes for which the graph is made (for other unused nodes, it gives garbage value).

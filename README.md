@@ -46,7 +46,7 @@ and the gateway takes the distance value to the required node.
 source node and find the next node at the minimum distance from it.
    - The **gateway's** function is to receive the next node and its minimum distance from the source node and take the values to the next node.
 
- - **Controller** - The basic layout of the processor is as follows:-
+ - **Controller** - The basic layout of the controller is as follows:-
 
    <img width="515" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/62a001f4-6c62-46ae-8d56-bc453d8023ea">
 

@@ -57,8 +57,16 @@ source node and find the next node at the minimum distance from it.
    
  - **Gateway** :- It consists of three parts
     - XNOR gates for bit matching to channel the distance value to the next node by providing the select line for the 6x3 multiplexers.
+      
+      <img width="587" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/087b64ef-e506-478b-99db-dee5f50cb4b9">
+
     - 6x3 Multiplexers are present whose output is the distance whenever it is in state one else output is 0.
+      
+      <img width="605" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/15c78f48-789a-4031-a7d6-f09cd1c669a2">
+
     -  3x8 decoder provides the enable bit for the processor of the next node.
+     
+        <img width="230" alt="image" src="https://github.com/Mehul-Kumar-Sahoo/Dijkstra_Digital_Electronics/assets/93527557/2c92fd66-ccde-414f-a6d5-d30559816a66">
 
 ## OUTPUT
 - The output is shown using logic probes and only checks the nodes for which the graph is made (for other unused nodes, it gives garbage value).
